@@ -38,8 +38,6 @@ office-toolbox
 
 You should be able to see your manifest file with the name ends with **manifest.xml**.
 
-Open it and replace all the ports in the generated manifest file from `3000` to `4200`.
-
 ### Step 3. Initialize
 
 Open **public/index.html**, add
@@ -98,17 +96,15 @@ export default App;
 
 Run the dev server through the terminal.
 
-* Windows
+```bash
+npm start
+```
 
-  ```bash
-    set HTTPS=true&&npm start
-  ```
+or
 
-* macOS
-
-  ```bash
-   HTTPS=true npm start
-  ```
+```bash
+yarn start
+```
 
 ### Step 6. Side load the manifest file by **Office Toolbox**
 
