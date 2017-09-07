@@ -38,6 +38,8 @@ office-toolbox
 
 You should be able to see your manifest file with the name ends with **manifest.xml**.
 
+Open it and replace all `https://localhost:3000` to `http://localhost:4200` in the generated manifest file.
+
 ### Step 3. Initialize
 
 Open **src/index.html**, add
