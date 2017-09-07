@@ -52,7 +52,9 @@ before `</head>` tag.
 
 Open **src/index.js**, add `Office.initialize` out of `ReactDOM.render(<App />, document.getElementById('root'));` like below:
 
-```typescript
+```javascript
+const Office = window.Office;
+
 Office.initialize = () => {
   ReactDOM.render(<App />, document.getElementById('root'));
 };
