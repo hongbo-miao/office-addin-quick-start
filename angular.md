@@ -50,15 +50,41 @@ Open **src/index.html**, add
 
 before `</head>` tag.
 
-Open **src/main.ts**, add `Office.initialize` out of `platformBrowserDynamic().bootstrapModule(AppModule);` like below:
+Open **src/main.ts**, and replace
+
+```typescript
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.log(err));
+```
+
+with the following:
 
 ```typescript
 declare const Office: any;
 
 Office.initialize = () => {
-  platformBrowserDynamic().bootstrapModule(AppModule);
+  platformBrowserDynamic().bootstrapModule(AppModule)
+    .catch(err => console.log(err));
 };
 ```
+
+If you are using Windows, since the add-in platform uses Internet Explorer, uncomment these lines in **src/polyfills.ts**.
+
+```typescript
+import 'core-js/es6/symbol';
+import 'core-js/es6/object';
+import 'core-js/es6/function';
+import 'core-js/es6/parse-int';
+import 'core-js/es6/parse-float';
+import 'core-js/es6/number';
+import 'core-js/es6/math';
+import 'core-js/es6/string';
+import 'core-js/es6/date';
+import 'core-js/es6/array';
+import 'core-js/es6/regexp';
+import 'core-js/es6/map';
+import 'core-js/es6/weak-map';
+import 'core-js/es6/set';
 
 ### Step 4. Add "Color Me"
 
@@ -117,7 +143,11 @@ office-toolbox
 
 ![Sideload](./img/office-toolbox-sideload.png)
 
-Open Excel and click your add-in to load.
+It will open Excel. Click the 'Show Taskpane' button on the 'Home' tab to open your add-in.
+
+Select the range and click **Color Me** button.
+
+![Result](./img/result.png)
 
 Congratulations you just finish your first Angular add-in for Excel!
 

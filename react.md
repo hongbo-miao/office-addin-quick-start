@@ -67,7 +67,7 @@ Open **src/App.js**. Replace by
 ```javascript
 import React, { Component } from 'react';
 
-const Excel = window.Excel;
+// const Excel = window.Excel;
 
 class App extends Component {
   constructor(props) {
@@ -77,7 +77,7 @@ class App extends Component {
   }
 
   onColorMe() {
-    Excel.run(async (context) => {
+    window.Excel.run(async (context) => {
       const range = context.workbook.getSelectedRange();
       range.format.fill.color = 'green';
       await context.sync();
@@ -120,7 +120,11 @@ office-toolbox
 
 ![Sideload](./img/office-toolbox-sideload.png)
 
-Open Excel and click your add-in to load.
+It will open Excel. Click the 'Show Taskpane' button on the 'Home' tab to open your add-in.
+
+Select the range and click **Color Me** button.
+
+![Result](./img/result.png)
 
 Congratulations you just finish your first React add-in for Excel!
 
